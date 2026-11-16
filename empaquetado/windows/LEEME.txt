@@ -1,0 +1,49 @@
+BODEGA GISELLE - Windows
+========================
+Inventario, control de vencimientos, ventas con codigo de barras y contabilidad basica.
+
+REQUISITO: Python 3.8 o mayor (gratis, https://www.python.org/downloads/).
+Al instalarlo marque "Add python.exe to PATH". No se necesita nada mas.
+
+USO RAPIDO
+1. Descomprima esta carpeta completa en un lugar fijo (ej. C:\BodegaGiselle). No la use dentro del .zip.
+2. Doble clic en "Iniciar Bodega Giselle.bat". Se abre el navegador en http://localhost:8080
+3. La primera vez cree el usuario administrador. Despues cree cajeros en Ajustes.
+Mientras trabaja, no cierre la ventana negra (al cerrarla el programa se detiene).
+
+INICIO AUTOMATICO (recomendado para la caja)
+- "Instalar inicio automatico.bat": inicia el programa solo, sin ventana, al entrar a Windows.
+  Luego solo abra el navegador en http://localhost:8080 (ponga un acceso directo en el escritorio).
+- "Quitar inicio automatico.bat" lo desactiva. "Detener Bodega Giselle.bat" lo apaga.
+
+RESPALDOS
+- Automaticos cada dia (se guardan 30) en datos\respaldos.
+- "Crear respaldo ahora.bat" hace uno inmediato.
+- IMPORTANTE: copie la carpeta datos\respaldos a una memoria USB o a la nube con frecuencia.
+  Si el disco falla y los respaldos estan en el mismo disco, se pierde todo.
+- "Restaurar respaldo.bat" recupera un respaldo (detenga el programa antes).
+
+USAR DESDE OTRAS PCs O CELULARES DE LA TIENDA
+1. En config.ini cambie host = 127.0.0.1 por host = 0.0.0.0
+2. Ejecute "Permitir otras PCs (firewall).bat" como administrador.
+3. Reinicie el programa y, desde la otra PC, abra http://IP-DE-ESTA-PC:8080
+   (la IP se ve con el comando ipconfig). No abra este puerto hacia Internet.
+
+IMPRESION Y LECTOR DE CODIGO DE BARRAS
+- Tickets de 80 mm y etiquetas se imprimen desde el navegador (elija la impresora en el dialogo).
+- Un lector USB funciona como teclado: tenga el cursor en la pantalla Vender y escanee.
+
+MANTENIMIENTO REMOTO
+Instale Tailscale (https://tailscale.com) en esta PC y en la suya para conectarse de forma privada
+sin abrir puertos; con eso puede usar Escritorio Remoto o ver la aplicacion en http://IP-tailscale:8080
+(requiere host = 0.0.0.0 en config.ini).
+
+ARCHIVO .EXE (opcional)
+"Crear EXE (opcional).bat" genera BodegaGiselle.exe con PyInstaller (necesita internet). No se incluye ya hecho.
+
+ACTUALIZAR
+Reemplace la carpeta "app" por la nueva. No toque "datos" ni "config.ini".
+
+PROBLEMAS
+- Si dice que el puerto esta en uso, el programa ya esta abierto (o cambie el puerto en config.ini).
+- Registro de errores: datos\bodega.log

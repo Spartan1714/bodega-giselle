@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+datos/
+*.db
+*.db-wal
+*.db-shm
+empaquetado/salida/
+web-demo/demo.html
+dist/
+build/
+*.spec
